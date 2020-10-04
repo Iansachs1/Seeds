@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "tailwind build public/assets/css/src/style.css -o public/assets/css/dist/scripts/style.css",
     "test": "node ./node_modules/mocha/bin/mocha ./tests/**/*.js",
     "run": "node ./server.js",
     "watch": "nodemon ./server.js"
@@ -11,10 +12,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "autoprefixer": "^10.0.1",
     "express": "^4.17.1",
     "express-handlebars": "^5.1.0",
     "mysql2": "^2.2.5",
-    "sequelize": "^6.3.5"
+    "postcss": "^8.1.1",
+    "postcss-cli": "^8.0.0",
+    "sequelize": "^6.3.5",
+    "tailwindcss": "^1.8.10"
   },
   "devDependencies": {
     "chai": "^4.2.0",
