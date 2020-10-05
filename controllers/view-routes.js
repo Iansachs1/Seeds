@@ -4,4 +4,8 @@ module.exports = function (app) {
         response.render('index', {});
     });
 
+    app.get('/log', function(request, response) {
+        response.render('log', {});
+    });
+
 };
