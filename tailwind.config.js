@@ -10,6 +10,7 @@ module.exports = {
       padding: "2rem",
   },
   colors: {
+      lightgreen: "#d4fce8",
       green1: "#323232",
       tan1: "#84a9ac",
       baby1: "#e4e3e3",
