@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS seeds_db;
+
+CREATE DATABASE seeds_db;
