@@ -11,7 +11,12 @@ module.exports = function (sequelize, DataTypes) {
     });
 
     Reason.associate = function(models) {
-        Reason.hasMany(models.Post);
+        Reason.belongsTo(models.User, {
+            foreignKey: "user_id"
+          })
+        Reason.hasMany(models.Post, {
+            foreignKey: "user_id"
+          });
     };
 
     return Reason;

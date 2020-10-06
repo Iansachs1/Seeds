@@ -10,8 +10,12 @@ module.exports = function (sequelize, DataTypes) {
     });
 
     Post.associate = function (models) {
-        Post.belongsTo(models.User);
-        Post.belongsTo(models.Reason);
+        Post.belongsTo(models.User, {
+            foreignKey: "user_id"
+          });
+        Post.belongsTo(models.Reason, {
+            foreignKey: "reason_id"
+          });
     };
 
     return Post;
