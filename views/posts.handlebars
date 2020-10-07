@@ -22,17 +22,8 @@
 
             <div id="Day" class="m-auto text-center">
 
-                {{#if good}}
-                <p class="font-sans font-bold text-5xl text-lime1">That's great to hear you had a good day. What caused your day to be good?</p>
-                {{/if}}
-
-                {{#if bad}}
-                <p class="font-sans font-bold text-5xl text-lime1">Sorry you had a bad day. What caused it?</p>
-                {{/if}}
-
-                {{#if meh}}
-                <p class="font-sans font-bold text-5xl text-lime1">Sorry you had a bad day. What caused it?</p>
-                {{/if}}
+                
+                <p id="genericResponse" class="font-sans font-bold text-5xl text-lime1"></p>
 
                 <button class="block m-auto my-5 w-32 p-2 bg-lime1 text-white rounded-full font-bold focus:outline-none">
 				    <a id="Work">Work</a>
