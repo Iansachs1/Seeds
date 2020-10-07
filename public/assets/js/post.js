@@ -6,13 +6,23 @@ $(document).ready(function(){
 
 });
 
-
 $(".day_quality").on("click", reasonsChoices);   function reasonsChoices(){
     $("#reasons").show();
     $("#dayQuality").hide();
     // console.log((`${this}`))
-    console.log($(this).attr("id"))
+    var dayQualityResponse = $(this).attr("id");
+    
+    switch (dayQualityResponse) {
+        case "good":
+            $("#genericResponse").text("What caused your day to be good?")
+            break;
+        case "bad":
+            $("#genericResponse").text("What caused your day to be bad?")
+            break;
+        case "meh":
+            $("#genericResponse").text("What caused your day to be meh?")
+            break;
+        default:
+            break;
+    }
 };
-
-
-
