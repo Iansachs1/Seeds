@@ -15,7 +15,7 @@ $(document).ready(function () {
         $.get("/api/reasons").then(function (data) {
             console.log(data);
             // existingUserReasons = 
-            var usersReasons = data.filter(reason => reason.reason === "Work");
+            var usersReasons = data.filter(reason => reason.user_id === currentUserId);
             existingUserReasons = [...usersReasons];
             // getuserReasons(data);
         })
