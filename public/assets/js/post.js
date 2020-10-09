@@ -1,3 +1,5 @@
+var currentUserId = "";
+
 $(document).ready(function () {
     // Write index page your CLIENT-SIDE logic here
     // This will run in the browser
@@ -5,6 +7,11 @@ $(document).ready(function () {
     $("#reasons").hide();
     $("#gratitude").hide();
 
+    $.get("/api/user_data").then(function (data) {
+        console.log(data);
+        currentUserId = data.id
+        console.log(currentUserId);
+    });
 });
 
 var newPost = {};
@@ -45,14 +52,28 @@ function gratitudeSubmit() {
     var gratitudeResponse = $("#gratitudeResponse").val().trim();
     newPost.gratitude = gratitudeResponse;
 
+    submitNewPost(newPost.day_quality, newPost.gratitude, currentUserId);
+
     console.log(newPost);
     console.log(newReason);
+
+}
+
+function submitNewPost(dayQuality, gratitude, userId) {
+    $.post("/api/post", {
+        day_quality: dayQuality,
+        gratitude: gratitude,
+        user_id: userId
+    })
+        .catch(function (err) {
+            console.log(err);
+        });
 }
 
 
 
 
-    
+
 $(".day_quality").on("click", reasonsChoices)
 $(".reasonSelected").on("click", gratitudeQuery)
 $("#gratitudeSubmit").on("click", gratitudeSubmit)

@@ -23,6 +23,20 @@ module.exports = function (app) {
       });
   });
 
+  app.post("/api/post", function(req, res) {
+    db.Post.create({
+      day_quality: req.body.day_quality,
+      gratitude: req.body.gratitude,
+      user_id: req.body.user_id
+    })
+      .then(function() {
+        res.redirect(307, "/members");
+      })
+      .catch(function(err) {
+        res.status(401).json(err);
+      });
+  });
+
   app.get("/logout", function(req, res) {
     req.logout();
     res.redirect("/");

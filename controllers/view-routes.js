@@ -26,7 +26,7 @@ module.exports = function (app) {
         // res.sendFile(path.join(__dirname, "../public/login.html"));
     });
 
-    app.get('/members', function (request, response) {
+    app.get('/members', isAuthenticated, function (request, response) {
         // get all body stuff from request.body object
         // get all request parameter stuff from request.params object
         
@@ -34,7 +34,7 @@ module.exports = function (app) {
         response.render('members', {});
     });
 
-    app.get('/posts', function (request, response) {
+    app.get('/posts', isAuthenticated, function (request, response) {
         response.render('posts', {});
     });
 
