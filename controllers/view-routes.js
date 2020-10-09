@@ -37,5 +37,9 @@ module.exports = function (app) {
     app.get('/posts', function (request, response) {
         response.render('posts', {});
     });
+    
+    app.get('/about', function (request, response) {
+        response.render('about', {});
+    }); 
 
 };
