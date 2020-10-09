@@ -1,4 +1,5 @@
 var currentUserId = "";
+var existingUserReasons = [];
 
 $(document).ready(function () {
     // Write index page your CLIENT-SIDE logic here
@@ -8,14 +9,22 @@ $(document).ready(function () {
     $("#gratitude").hide();
 
     $.get("/api/user_data").then(function (data) {
-        console.log(data);
         currentUserId = data.id
-        console.log(currentUserId);
-    });
+    })
+    .then(
+        $.get("/api/reasons").then(function (data) {
+            console.log(data);
+            // existingUserReasons = 
+            var usersReasons = data.filter(reason => reason.reason === "Work");
+            existingUserReasons = [...usersReasons];
+            // getuserReasons(data);
+        })
+    );
 });
 
 var newPost = {};
 var newReason = {};
+
 
 function reasonsChoices() {
     newPost = {};
@@ -54,23 +63,32 @@ function gratitudeSubmit() {
 
     submitNewPost(newPost.day_quality, newPost.gratitude, currentUserId);
 
-    console.log(newPost);
-    console.log(newReason);
-
 }
 
-function submitNewPost(dayQuality, gratitude, userId) {
+function submitNewPost (dayQuality, gratitude, userId) {
     $.post("/api/post", {
         day_quality: dayQuality,
         gratitude: gratitude,
         user_id: userId
     })
-        .catch(function (err) {
+    .then(submitNewReason(newReason.reason, currentUserId))
+    .then(function () {
+        location.href = "/members";
+    })
+    .catch(function (err) {
             console.log(err);
         });
 }
 
-
+function submitNewReason (reason, userId) {
+    $.post("/api/reason", {
+        reason: reason,
+        user_id: userId
+    })
+    .catch(function (err) {
+        console.log(err);
+    });
+}
 
 
 
