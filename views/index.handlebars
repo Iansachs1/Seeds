@@ -1,10 +1,21 @@
 
 <!-- Build your index page here! -->
 
-<script src="/public/assets/js/index.js"></script>
 
     <div class="flex h-screen/1">
+
+        <div>
+            <button type="button" class = "block">
+                <img src="../public/assets/images/dropdown.png" alt="dropdown button">
+            </button>
+            <div class= "mt-1  w-28 bg-green1 shadow-xl">
+                <a href="/" class = "block px-4 py-1 text-white-800 rounded-lg hover:bg-baby1  hover:text-white">Home</a>
+                <a href="posts" class = "block px-4 py-1 text-white-800 rounded-lg hover:bg-baby1  hover:text-white" >Posts</a>
+            </div>
+        </div>
         <div id="welcomeScreen" class="m-auto text-center">
+
+
                 <img id="seeds" class="m-auto text-center" src="/public/assets/images/seeds.png"/>
                 {{!-- <p class="font-sans font-bold text-2xl">Would you like to log an entry or view your metrics?</p> --}}
 
@@ -20,6 +31,8 @@
 				    <a id="metricsButton">Metrics</a>
 				</button>
                 
+<script src="/public/assets/js/index.js"></script>
+
         </div>
     </div>
         

@@ -1307,11 +1307,13 @@ video {
           background-clip: text;
 }
 
+
 .bg-lightgreen {
   --bg-opacity: 1;
   background-color: #d4fce8;
   background-color: rgba(212, 252, 232, var(--bg-opacity));
 }
+
 
 .bg-green1 {
   --bg-opacity: 1;
