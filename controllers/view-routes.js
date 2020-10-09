@@ -42,4 +42,10 @@ module.exports = function (app) {
         response.render('about', {});
     }); 
 
+    app.get('/about', function (request, response) {
+        response.render('about', {});
+    });
+    
+
+
 };

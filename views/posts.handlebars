@@ -1,62 +1,72 @@
-
-
-    <header class="bg-blueLight1 text-white items-end m-auto flex justify-between px-4 py-2">
-        <div>
-            <img class = "w-32" src="../public/assets/images/seeds.png" alt="seeds logo">
-        </div>
-        <div class = "block">
-            <button type="button" >
-                <a href="/">
-                <img src="../public/assets/images/home.png" alt="home icon for posts button">
-                </a>
-            </button>
-            <button type="button" >
-                <a href="posts">
-                    <img src="../public/assets/images/leaf.png" alt="leaf icon for posts button">
-                </a>
-        </div>
-    </header>
-
-    <div id="postScreen" class="flex h-screen/1">
-
-        <div id="dayQuality" class="m-auto text-center">
-                <P class="font-sans font-bold text-5xl text-lime1">Was today a good or bad day?</p>
-                   
-                <button class="block m-auto my-5 w-32 p-2 bg-lime1 text-white rounded-full font-bold focus:outline-none">
-				    <a id="good" class="day_quality">Good</a>
-				</button>
-
-                <button class="block m-auto my-5 w-32 p-2 bg-lime1 text-white rounded-full font-bold focus:outline-none">
-				    <a id="bad" class="day_quality">Bad</a>
-				</button>
-
-                <button class="block m-auto my-5 w-32 p-2 bg-lime1 text-white rounded-full font-bold focus:outline-none">
-				    <a id="meh" class="day_quality">Meh</a>
-				</button>
-        </div>
-
-        <div id="reasons" class="m-auto text-center">
-
-            <div id="Day" class="m-auto text-center">
-
-                
-                <p id="genericResponse" class="font-sans font-bold text-5xl text-lime1"></p>
-
-                <button class="block m-auto my-5 w-32 p-2 bg-lime1 text-white rounded-full font-bold focus:outline-none">
-				    <a id="Work">Work</a>
-				</button>
-
-                <button class="block m-auto my-5 w-32 p-2 bg-lime1 text-white rounded-full font-bold focus:outline-none">
-				    <a id="Family">Family</a>
-				</button>
-
-                <button class="block m-auto my-5 w-32 p-2 bg-lime1 text-white rounded-full font-bold focus:outline-none">
-				    <a id="Other">Other</a>
-				</button>
-            </div>
-        </div>
-
-
+<header class="bg-blueLight1 text-white items-end m-auto flex justify-between px-4 py-2">
+    <div>
+        <img class="w-32" src="../public/assets/images/seeds.png" alt="seeds logo">
     </div>
+    <div class="block">
+        <button type="button">
+            <a href="/">
+                <img src="../public/assets/images/home.png" alt="home icon for posts button">
+            </a>
+        </button>
+        <button type="button">
+            <a href="posts">
+                <img src="../public/assets/images/leaf.png" alt="leaf icon for posts button">
+            </a>
+    </div>
+</header>
+
+<div id="postScreen" class="flex h-screen/1">
+
+    <div id="dayQuality" class="m-auto text-center">
+        <P class="font-sans font-bold text-5xl text-lime1">Was today a good or bad day?</p>
+
+        <button class="block m-auto my-5 w-32 p-2 bg-lime1 text-white rounded-full font-bold focus:outline-none">
+            <a id="good" class="day_quality">Good</a>
+        </button>
+
+        <button class="block m-auto my-5 w-32 p-2 bg-lime1 text-white rounded-full font-bold focus:outline-none">
+            <a id="bad" class="day_quality">Bad</a>
+        </button>
+
+        <button class="block m-auto my-5 w-32 p-2 bg-lime1 text-white rounded-full font-bold focus:outline-none">
+            <a id="meh" class="day_quality">Meh</a>
+        </button>
+    </div>
+
+    <div id="reasons" class="m-auto text-center">
+
+        <div id="Day" class="m-auto text-center">
+
+
+            <p id="genericResponse" class="font-sans font-bold text-5xl text-lime1"></p>
+
+            <button id="Work"
+                class="block m-auto my-5 w-32 p-2 bg-lime1 text-white rounded-full font-bold focus:outline-none reasonSelected">
+                Work
+            </button>
+
+            <button id="Family"
+                class="block m-auto my-5 w-32 p-2 bg-lime1 text-white rounded-full font-bold focus:outline-none reasonSelected">
+                Family
+            </button>
+
+            <button id="Other"
+                class="block m-auto my-5 w-32 p-2 bg-lime1 text-white rounded-full font-bold focus:outline-none reasonSelected">
+                Other
+            </button>
+        </div>
+    </div>
+
+    <div id="gratitude" class="m-auto text-center">
+        <label class="block">
+            <span class="text-gray-700">What is something you are grateful for today?</span>
+            <textarea id="gratitudeResponse" class="form-textarea mt-1 block w-full" rows="3"
+                placeholder="Enter some long form content."></textarea>
+        </label>
+        <button id="gratitudeSubmit" type="submit">Submit</button>
+    </div>
+
+
+</div>
 
 <script src="/public/assets/js/post.js"></script>
