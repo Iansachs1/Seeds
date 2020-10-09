@@ -38,4 +38,10 @@ module.exports = function (app) {
         response.render('posts', {});
     });
 
+    app.get('/about', function (request, response) {
+        response.render('about', {});
+    });
+    
+
+
 };
