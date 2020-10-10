@@ -48,14 +48,5 @@ module.exports = function (app) {
     app.get('/about', function (request, response) {
         response.render('about', {});
     });
-    
-    app.get('/metrics', function (request, response) {
-        // get all body stuff from request.body object
-        // get all request parameter stuff from request.params object
-        response.render("metrics", {});
-        // respond with: response.send()
-
-    });
-
 
 };
