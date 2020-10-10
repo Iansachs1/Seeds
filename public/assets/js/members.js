@@ -21,7 +21,18 @@ $(document).ready(function () {
         $.get("/api/posts").then(function (data) {
 
           var userPosts = data.filter(post => post.user_id === currentUserId);
+          console.log(userPosts);
+          // if (userPosts.length() < 1) {
+          //   $("#dayQualityChart").hide()
+          //   $("#goodReasons").hide()
+          //   $("#badReasons").hide()
+          //   $("#mehReasons").hide()
+          // } else {
           createDayQualityChart(userPosts, "dayQualityChart");
+          createReasonsForDayChart(userPosts, "good", "goodReasons")
+          createReasonsForDayChart(userPosts, "bad", "badReasons")
+          createReasonsForDayChart(userPosts, "meh", "mehReasons")
+          // }
 
         }))
   });
