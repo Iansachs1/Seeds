@@ -6,6 +6,7 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false,
         },
         gratitude: DataTypes.STRING,
+        reason: DataTypes.STRING
 
     });
 
@@ -13,9 +14,9 @@ module.exports = function (sequelize, DataTypes) {
         Post.belongsTo(models.User, {
             foreignKey: "user_id"
           });
-        Post.belongsTo(models.Reason, {
-            foreignKey: "reason_id"
-          });
+        // Post.belongsTo(models.Reason, {
+        //     foreignKey: "reason_id"
+        //   });
     };
 
     return Post;

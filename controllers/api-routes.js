@@ -38,7 +38,8 @@ module.exports = function (app) {
     db.Post.create({
       day_quality: req.body.day_quality,
       gratitude: req.body.gratitude,
-      user_id: req.body.user_id
+      user_id: req.body.user_id,
+      reason: req.body.reason
     })
       .then(function () {
         res.status(200).end();
