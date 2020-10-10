@@ -18,8 +18,8 @@ $(document).ready(function () {
             var usersReasons = data.filter(reason => reason.user_id === currentUserId);
             existingUserReasons = [...usersReasons];
             // getuserReasons(data);
-        })
-    );
+        }));
+
 });
 
 var newPost = {};

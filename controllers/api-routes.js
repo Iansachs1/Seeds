@@ -76,6 +76,16 @@ module.exports = function (app) {
       });
   });
 
+  app.get("/api/posts", function (req, res) {
+    db.Post.findAll()
+      .then(function (data) {
+        res.json(data);
+      })
+      .catch(function (err) {
+        res.status(401).json(err);
+      });
+  });
+
   app.get("/logout", function (req, res) {
     req.logout();
     res.redirect("/");
