@@ -26,6 +26,12 @@ module.exports = function (app) {
         // res.sendFile(path.join(__dirname, "../public/login.html"));
     });
 
+    app.get("/logout", function (request, response) {
+        request.logout();
+        response.redirect("/");
+      });
+
+
     app.get('/members', isAuthenticated, function (request, response) {
         // get all body stuff from request.body object
         // get all request parameter stuff from request.params object

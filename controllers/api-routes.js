@@ -76,6 +76,7 @@ module.exports = function (app) {
       });
   });
 
+<<<<<<< HEAD
   app.get("/api/posts", function (req, res) {
     db.Post.findAll()
       .then(function (data) {
@@ -90,6 +91,8 @@ module.exports = function (app) {
     req.logout();
     res.redirect("/");
   });
+=======
+>>>>>>> 984002e26287da47583a84a38e7a38aeaaab68fd
 
 
 
