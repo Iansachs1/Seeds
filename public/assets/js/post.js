@@ -54,21 +54,24 @@ function gratitudeQuery() {
     $("#gratitude").show();
 
     var reasonResponse = $(this).attr("id");
-    newReason.reason = reasonResponse;
+    console.log(reasonResponse);
+    newPost.reason = reasonResponse;
+    // newReason.reason = reasonResponse;
 }
 
 function gratitudeSubmit() {
     var gratitudeResponse = $("#gratitudeResponse").val().trim();
     newPost.gratitude = gratitudeResponse;
-
-    submitNewPost(newPost.day_quality, newPost.gratitude, currentUserId);
+    console.log(newPost);
+    submitNewPost(newPost.day_quality, newPost.gratitude, newPost.reason, currentUserId);
 
 }
 
-function submitNewPost (dayQuality, gratitude, userId) {
+function submitNewPost (dayQuality, gratitude, reason, userId) {
     $.post("/api/post", {
         day_quality: dayQuality,
         gratitude: gratitude,
+        reason: reason,
         user_id: userId
     })
     .then(submitNewReason(newReason.reason, currentUserId))
@@ -83,7 +86,7 @@ function submitNewPost (dayQuality, gratitude, userId) {
 function submitNewReason (reason, userId) {
     $.post("/api/reason", {
         reason: reason,
-        user_id: userId
+        user_id: userId,
     })
     .catch(function (err) {
         console.log(err);

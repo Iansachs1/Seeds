@@ -38,7 +38,8 @@ module.exports = function (app) {
     db.Post.create({
       day_quality: req.body.day_quality,
       gratitude: req.body.gratitude,
-      user_id: req.body.user_id
+      user_id: req.body.user_id,
+      reason: req.body.reason
     })
       .then(function () {
         res.status(200).end();
@@ -76,7 +77,6 @@ module.exports = function (app) {
       });
   });
 
-<<<<<<< HEAD
   app.get("/api/posts", function (req, res) {
     db.Post.findAll()
       .then(function (data) {
@@ -91,8 +91,6 @@ module.exports = function (app) {
     req.logout();
     res.redirect("/");
   });
-=======
->>>>>>> 984002e26287da47583a84a38e7a38aeaaab68fd
 
 
 

@@ -14,9 +14,9 @@ module.exports = function (sequelize, DataTypes) {
         Reason.belongsTo(models.User, {
             foreignKey: "user_id"
           })
-        Reason.hasMany(models.Post, {
-            foreignKey: "user_id"
-          });
+        // Reason.hasMany(models.Post, {
+        //     foreignKey: "user_id"
+        //   });
     };
 
     return Reason;
