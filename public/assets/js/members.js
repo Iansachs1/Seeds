@@ -34,7 +34,6 @@ $(document).ready(function() {
                     createReasonsForDayChart(userPosts, "good", "goodReasons");
                     createReasonsForDayChart(userPosts, "bad", "badReasons");
                     createReasonsForDayChart(userPosts, "meh", "mehReasons");
-                    // }
                 })
             );
     });
