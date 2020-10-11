@@ -1,7 +1,7 @@
-
 function getPostsByDayQuality(userPosts, dayQuality) {
-
-    var postsByDayQuality = userPosts.filter(post => post.day_quality === dayQuality)
+    var postsByDayQuality = userPosts.filter(
+        (post) => post.day_quality === dayQuality
+    );
     return postsByDayQuality;
 }
 
@@ -18,29 +18,36 @@ function countReasons(reasons) {
         const dayQuality = reasons[i];
 
         if (dayQuality === "Work") {
-            workCount++
+            workCount++;
         } else if (dayQuality === "Family") {
-            familyCount++
+            familyCount++;
         } else if (dayQuality === "Friends") {
-            friendsCount++
+            friendsCount++;
         } else if (dayQuality === "School") {
-            schoolCount++
+            schoolCount++;
         } else if (dayQuality === "Relationship") {
-            relationshipCount++
+            relationshipCount++;
         } else if (dayQuality === "Health") {
-            healthCount++
+            healthCount++;
         } else if (dayQuality === "Other") {
-            otherCount++
+            otherCount++;
         }
     }
-    return [workCount, familyCount, friendsCount, schoolCount, relationshipCount, healthCount, otherCount];
+    return [
+        workCount,
+        familyCount,
+        friendsCount,
+        schoolCount,
+        relationshipCount,
+        healthCount,
+        otherCount,
+    ];
 }
-
 
 function getReasons(postsByDayQuality) {
     var reasons = [];
     for (let i = 0; i < postsByDayQuality.length; i++) {
-        const postReason = postsByDayQuality[i].reason
+        const postReason = postsByDayQuality[i].reason;
 
         reasons.push(postReason);
     }
@@ -48,43 +55,69 @@ function getReasons(postsByDayQuality) {
 }
 
 function createReasonsForDayChart(userPosts, dayQuality, chartId) {
-    var reasonsData = countReasons(getReasons(getPostsByDayQuality(userPosts, dayQuality)));
+    var reasonsData = countReasons(
+        getReasons(getPostsByDayQuality(userPosts, dayQuality))
+    );
 
-    if (reasonsData[0] == 0 && 
-        reasonsData[1] == 0 && 
+    if (
+        reasonsData[0] == 0 &&
+        reasonsData[1] == 0 &&
         reasonsData[2] == 0 &&
         reasonsData[3] == 0 &&
         reasonsData[4] == 0 &&
         reasonsData[5] == 0 &&
         reasonsData[6] == 0
-        ) {
+    ) {
         $("#" + chartId).hide();
         console.log("working");
     } else {
-
         var data = {
-            labels: ["Work", "Family", "Friends", "School", "Relationship", "Health", "Other"],
+            labels: [
+                "Work",
+                "Family",
+                "Friends",
+                "School",
+                "Relationship",
+                "Health",
+                "Other",
+            ],
             datasets: [{
                 data: reasonsData,
-                backgroundColor: ["#36A2EB", "#FF6384", "#FFCE56", "#36A200", "#FF1184", "#FF2256", "#3633EB"],
-                hoverBackgroundColor: ["#36A2EB", "#FF6384", "#FFCE56", "#36A200", "#FF1184", "#FF2256", "#3633EB"],
-            },],
+                backgroundColor: [
+                    "#36A2EB",
+                    "#FF6384",
+                    "#FFCE56",
+                    "#36A200",
+                    "#FF1184",
+                    "#FF2256",
+                    "#3633EB",
+                ],
+                hoverBackgroundColor: [
+                    "#36A2EB",
+                    "#FF6384",
+                    "#FFCE56",
+                    "#36A200",
+                    "#FF1184",
+                    "#FF2256",
+                    "#3633EB",
+                ],
+            }, ],
         };
 
         Chart.pluginService.register({
-            beforeDraw: function (chart) {
+            beforeDraw: function(chart) {
                 var width = chart.chart.width,
                     height = chart.chart.height,
                     ctx = chart.chart.ctx;
                 ctx.restore();
-                var fontSize = (height / 114).toFixed(2);
-                ctx.font = fontSize + "em sans-serif";
-                ctx.textBaseline = "middle";
-                var text = "75%",
-                    textX = Math.round((width - ctx.measureText(text).width) / 2),
-                    textY = height / 2;
-                ctx.fillText(text, textX, textY);
-                ctx.save();
+                // var fontSize = (height / 114).toFixed(2);
+                // ctx.font = fontSize + "em sans-serif";
+                // ctx.textBaseline = "middle";
+                // var text = "75%",
+                //     textX = Math.round((width - ctx.measureText(text).width) / 2),
+                //     textY = height / 2;
+                // ctx.fillText(text, textX, textY);
+                // ctx.save();
             },
         });
 

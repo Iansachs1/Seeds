@@ -7,21 +7,38 @@ function countDayQualities(dayQualities) {
         const dayQuality = dayQualities[i];
 
         if (dayQuality === "good") {
-            numberOfGoodDays++
+            numberOfGoodDays++;
         } else if (dayQuality === "bad") {
-            numberOfBadDays++
+            numberOfBadDays++;
         } else if (dayQuality === "meh") {
-            numberOfMehDays++
+            numberOfMehDays++;
         }
     }
-    return [ numberOfGoodDays, numberOfBadDays, numberOfMehDays ];
-}
+    //determines how many days you've logged
+    $("#totalSubmissions").text(dayQualities.length);
+    //determines percent of good days vs bad
+    var a = parseInt(numberOfGoodDays);
+    var b = parseInt(numberOfBadDays);
+    var calc = parseInt(Math.round((a / (a + b)) * 100));
+    $("#totalGoodDayCalc").text(calc + "%");
 
+    //determines how many good days have occurred in a row
+    const reversedDayQualities = dayQualities.reverse();
+    var counter = 0;
+    var i = 0;
+    while (reversedDayQualities[i] === "good") {
+        counter++;
+        i++;
+    }
+    console.log(counter);
+    $("#totalGoodDayStreak").text(counter);
+    return [numberOfGoodDays, numberOfBadDays, numberOfMehDays];
+}
 
 function getDayQualities(posts) {
     var dayQualities = [];
     for (let i = 0; i < posts.length; i++) {
-        const postDayQuality = posts[i].day_quality
+        const postDayQuality = posts[i].day_quality;
 
         dayQualities.push(postDayQuality);
     }
@@ -29,10 +46,13 @@ function getDayQualities(posts) {
 }
 
 function createDayQualityChart(userPosts, chartId) {
-    
     var dayQualityData = countDayQualities(getDayQualities(userPosts));
 
-    if (dayQualityData[0] == 0 && dayQualityData[1] == 0 && dayQualityData[2] == 0) {
+    if (
+        dayQualityData[0] == 0 &&
+        dayQualityData[1] == 0 &&
+        dayQualityData[2] == 0
+    ) {
         $("#" + chartId).hide();
         console.log("working");
     } else {
@@ -42,26 +62,26 @@ function createDayQualityChart(userPosts, chartId) {
                 data: dayQualityData,
                 backgroundColor: ["#36A2EB", "#FF6384", "#FFCE56"],
                 hoverBackgroundColor: ["#36A2EB", "#FF6384", "#FFCE56"],
-            },],
+            }, ],
         };
-    
-        Chart.pluginService.register({
-            beforeDraw: function (chart) {
-                var width = chart.chart.width,
-                    height = chart.chart.height,
-                    ctx = chart.chart.ctx;
-                ctx.restore();
-                var fontSize = (height / 114).toFixed(2);
-                ctx.font = fontSize + "em sans-serif";
-                ctx.textBaseline = "middle";
-                var text = "75%",
-                    textX = Math.round((width - ctx.measureText(text).width) / 2),
-                    textY = height / 2;
-                ctx.fillText(text, textX, textY);
-                ctx.save();
-            },
-        });
-    
+
+        // Chart.pluginService.register({
+        //     beforeDraw: function(chart) {
+        //         var width = chart.chart.width,
+        //             height = chart.chart.height,
+        //             ctx = chart.chart.ctx;
+        //         ctx.restore();
+        //         var fontSize = (height / 114).toFixed(2);
+        //         ctx.font = fontSize + "em sans-serif";
+        //         ctx.textBaseline = "middle";
+        //         var text = "75%",
+        //             textX = Math.round((width - ctx.measureText(text).width) / 2),
+        //             textY = height / 2;
+        //         ctx.fillText(text, textX, textY);
+        //         ctx.save();
+        //     },
+        // });
+
         var chart = new Chart(document.getElementById(chartId), {
             type: "doughnut",
             data: data,
@@ -75,45 +95,35 @@ function createDayQualityChart(userPosts, chartId) {
     }
 }
 
-
-
-
 // $(document).ready(function () {
 //     // This file just does a GET request to figure out which user is logged in
 //     // and updates the HTML on the page
 //     $.get("/api/user_data").then(function (data) {
 
-//         $(".member-name").text(data.name);  
+//         $(".member-name").text(data.name);
 
-    // }).then(
-    //   $.get("/api/reasons").then(function (data) {
-    //     // existingUserReasons =     
-    //     var usersReasons = data.filter(reason => reason.user_id === currentUserId);
-    //     userReasons = [...usersReasons];
-    //     console.log(userReasons);
-    //     // getuserReasons(data);
+// }).then(
+//   $.get("/api/reasons").then(function (data) {
+//     // existingUserReasons =
+//     var usersReasons = data.filter(reason => reason.user_id === currentUserId);
+//     userReasons = [...usersReasons];
+//     console.log(userReasons);
+//     // getuserReasons(data);
 
-    //   })).then(
-    //     $.get("/api/posts").then(function (data) {
+//   })).then(
+//     $.get("/api/posts").then(function (data) {
 
-    //       // console.log(data);    
-    //       var userPosts = data.filter(post => post.user_id === currentUserId);
-    //       userPosts = [...userPosts];  
-    //       console.log(userPosts);  
+//       // console.log(data);
+//       var userPosts = data.filter(post => post.user_id === currentUserId);
+//       userPosts = [...userPosts];
+//       console.log(userPosts);
 
-    //       getDayQualities(userPosts, postDayQualities);
-    //     })
-    //     .then(function () {
-    //         countDayQualities();    
-    //         console.log(numberOfGoodDays);
+//       getDayQualities(userPosts, postDayQualities);
+//     })
+//     .then(function () {
+//         countDayQualities();
+//         console.log(numberOfGoodDays);
 
+//     }))
 
-    //     }))
-
-
-
-    // });
-
-
-
-
+// });
