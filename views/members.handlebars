@@ -1,6 +1,7 @@
 <script src="/public/assets/js/charts/dayQualityChart.js"></script>
 <script src="/public/assets/js/charts/reasonsForDayChart.js"></script>
 <script src="/public/assets/js/members.js"></script>
+<script src="/public/assets/js/charts/linechart.js"></script>
 
 <div class="bg-lime1">
     <div class="max-w-screen-xl mx-auto py-12 px-4 sm:py-16 sm:px-6 lg:px-8 lg:py-20">
@@ -40,16 +41,18 @@
         </dl>
     </div>
 </div>
+<div class="h-64 w-64"><canvas id="test">test</canvas></div>
+
 
 {{!-- thee charts --}}
 <div class="flex justify-around mt-16">
-    <div id="goodReasonsDiv" class="w-1/3 m-2"><canvas id="goodReasons"></canvas>
+    <div id="goodReasonsDiv" class="w-1/3 m-2 hidden"><canvas id="goodReasons"></canvas>
         <p class="text-center mt-6 text-xl text-white font-bold text-bold">Good Days</p>
     </div>
-    <div id="badReasonsDiv" class="w-1/3 m-2"><canvas id="badReasons"></canvas>
+    <div id="badReasonsDiv" class="w-1/3 m-2 hidden"><canvas id="badReasons"></canvas>
         <p class="text-center mt-6 text-xl text-white font-bold text-bold">Bad Days</p>
     </div>
-    <div id="mehReasonsDiv" class="w-1/3 m-2"><canvas id="mehReasons"></canvas>
+    <div id="mehReasonsDiv" class="w-1/3 m-2 hidden"><canvas id="mehReasons"></canvas>
         <p class="text-center mt-6 text-xl text-white font-bold text-bold">Meh Days</p>
     </div>
     <div class="w-1/3 m-2" hidden><canvas id="dayQualityChart"></canvas></div>
@@ -59,7 +62,7 @@
     <a href="posts">Post</a>
 </button> --}}
 
-<div class="conatiner">
+<div class="conatiner m-16">
     <div class="flex flex-col">
         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">

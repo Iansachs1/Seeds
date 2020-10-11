@@ -20,7 +20,28 @@ function countDayQualities(dayQualities) {
     var a = parseInt(numberOfGoodDays);
     var b = parseInt(numberOfBadDays);
     var calc = parseInt(Math.round((a / (a + b)) * 100));
-    $("#totalGoodDayCalc").text(calc + "%");
+    if (dayQualities.length == 0) {
+        $("#totalGoodDayCalc").text("0");
+    } else {
+        $("#totalGoodDayCalc").text(calc + "%");
+    }
+
+    //checks to see if inputs are blank. If yes then the chart will not be displayed on members page
+    if (numberOfGoodDays !== 0) {
+        $("#goodReasonsDiv").removeClass("hidden");
+    } else {
+        $("#goodReasonsDiv").addClass("hidden");
+    }
+    if (numberOfBadDays !== 0) {
+        $("#badReasonsDiv").removeClass("hidden");
+    } else {
+        $("#badReasonsDiv").addClass("hidden");
+    }
+    if (numberOfMehDays !== 0) {
+        $("#mehReasonsDiv").removeClass("hidden");
+    } else {
+        $("#mehReasonsDiv").addClass("hidden");
+    }
 
     //determines how many good days have occurred in a row
     const reversedDayQualities = dayQualities.reverse();
@@ -94,36 +115,3 @@ function createDayQualityChart(userPosts, chartId) {
         });
     }
 }
-
-// $(document).ready(function () {
-//     // This file just does a GET request to figure out which user is logged in
-//     // and updates the HTML on the page
-//     $.get("/api/user_data").then(function (data) {
-
-//         $(".member-name").text(data.name);
-
-// }).then(
-//   $.get("/api/reasons").then(function (data) {
-//     // existingUserReasons =
-//     var usersReasons = data.filter(reason => reason.user_id === currentUserId);
-//     userReasons = [...usersReasons];
-//     console.log(userReasons);
-//     // getuserReasons(data);
-
-//   })).then(
-//     $.get("/api/posts").then(function (data) {
-
-//       // console.log(data);
-//       var userPosts = data.filter(post => post.user_id === currentUserId);
-//       userPosts = [...userPosts];
-//       console.log(userPosts);
-
-//       getDayQualities(userPosts, postDayQualities);
-//     })
-//     .then(function () {
-//         countDayQualities();
-//         console.log(numberOfGoodDays);
-
-//     }))
-
-// });
