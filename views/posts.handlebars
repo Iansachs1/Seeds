@@ -65,9 +65,10 @@
     <div id="gratitude" class="m-auto text-center">
         <label class="block">
             <span class="font-sans font-bold text-2xl text-lime1">What is something you are grateful for today?</span>
-            <textarea id="gratitudeResponse" class="form-textarea mt-1 block w-full" rows="3"
+            <textarea id="gratitudeResponse" maxlength="255" class="form-textarea mt-1 block w-full" rows="3"
                 placeholder="Enter some long form content."></textarea>
         </label>
+        <p>You have <span id="charactersRemaining"></span> characters remaining.</p>
         <button id="gratitudeSubmit" class="block m-auto my-5 w-32 p-2 bg-lime1 text-white rounded-full font-bold focus:outline-none" type="submit">Submit</button>
     </div>
 

@@ -1,3 +1,4 @@
+const { decodeBase64 } = require("bcryptjs");
 const path = require("path");
 
 const isAuthenticated = require("../config/middleware/isAuthenticated");
@@ -35,7 +36,6 @@ module.exports = function (app) {
     app.get('/members', isAuthenticated, function (request, response) {
         // get all body stuff from request.body object
         // get all request parameter stuff from request.params object
-        
         // respond with: response.send()
         response.render('members', {});
     });

@@ -93,7 +93,20 @@ function submitNewReason (reason, userId) {
     });
 }
 
+function countCharacters() {  
+    // setup some variables 
+    var textEntered, countRemaining, counter;  
+    // get the number of characters in the tweet box 
+    textEntered = document.getElementById("gratitudeResponse").value; 
+    // number left = number of characters - our maximum (140) 
+    counter = (255 - (textEntered.length)); 
+    // access the div for characters remaining 
+    countRemaining = document.getElementById('charactersRemaining');
+    // put the number of characters left into that div! 
+    countRemaining.textContent = counter;
+}
 
+$(".gratitudeResponse").keypress(countCharacters);
 
 $(".day_quality").on("click", reasonsChoices)
 $(".reasonSelected").on("click", gratitudeQuery)
