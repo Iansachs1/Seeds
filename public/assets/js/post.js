@@ -106,7 +106,7 @@ function countCharacters() {
     countRemaining.textContent = counter;
 }
 
-$(".gratitudeResponse").keypress(countCharacters);
+$("#gratitudeResponse").keydown(countCharacters);
 
 $(".day_quality").on("click", reasonsChoices)
 $(".reasonSelected").on("click", gratitudeQuery)
