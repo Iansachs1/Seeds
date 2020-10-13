@@ -5,11 +5,23 @@ $(document).ready(function () {
     // Write index page your CLIENT-SIDE logic here
     // This will run in the browser
 
+    if (currentUserId !== 0) {
+        $("#logButton").text("Logout")
+        $("#logButton").attr("href", "logout")
+
+    } else {
+        $("#logButton").text("Login")
+        $("#logButton").attr("href","login")
+        
+    }
+
     $("#reasons").hide();
     $("#gratitude").hide();
 
     $.get("/api/user_data").then(function (data) {
         currentUserId = data.id
+        $(".mobileNavName").text(data.name);
+        $(".mobileNavEmail").text(data.email);
     })
     .then(
         $.get("/api/reasons").then(function (data) {
