@@ -51,6 +51,8 @@ $(document).ready(function () {
 });
 
 function renderUserPosts(userPosts) {
+
+
     var table = $(".postTable")
     for (let i = 0; i < userPosts.length; i++) {
         const post = userPosts[i];
@@ -83,4 +85,10 @@ function renderUserPosts(userPosts) {
 
 
     }
+
+    $("#carousel-text").text(`You should always try to remember something to be grateful for: ` + userPosts[6].gratitude);
+    $("#carousel-text2").text(`You should always try to remember something to be grateful for: ` + userPosts[7].gratitude);
+    $("#carousel-text3").text(`You should always try to remember something to be grateful for: ` + userPosts[8].gratitude);
 }
+
+
