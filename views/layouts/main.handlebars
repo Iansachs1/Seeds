@@ -24,16 +24,16 @@
           <div class="-ml-2 mr-2 flex items-center md:hidden">
             <!-- Mobile menu button -->
             <button
-              class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white transition duration-150 ease-in-out"
-              aria-label="Main menu" aria-expanded="false">
+              class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white transition duration-150 ease-in-out mobileNavButton"
+              aria-label="Main menu" aria-expanded="false" data-toggle="hide">
               <!-- Icon when menu is closed. -->
               <!--
               Heroicon name: menu
 
               Menu open: "hidden", Menu closed: "block"
             -->
-              <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                stroke="currentColor">
+              <svg class="block h-6 w-6 mobileNavIconClosed" xmlns="http://www.w3.org/2000/svg" fill="none"
+                viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
               </svg>
               <!-- Icon when menu is open. -->
@@ -42,8 +42,8 @@
 
               Menu open: "block", Menu closed: "hidden"
             -->
-              <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                stroke="currentColor">
+              <svg class="hidden h-6 w-6 mobileNavIconOpen" xmlns="http://www.w3.org/2000/svg" fill="none"
+                viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
@@ -58,14 +58,15 @@
               Page</a>
             <a href="about"
               class="ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">About</a>
-            <a href="logout"
-              class="ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Logout</a>
+            <a href="login"
+              id="logButton"
+              class="ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Login</a>
           </div>
         </div>
         <div class="flex items-center">
           <div id="newPostButton" class="hidden flex-shrink-0">
             <span class="rounded-md shadow-sm">
-              <button id ="newpost" type="button"
+              <button id="newpost" type="button"
                 class="relative inline-flex items-center px-4 py-2 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-lime1 hover:bg-indigo-400 focus:outline-none focus:shadow-outline-indigo focus:border-indigo-600 active:bg-indigo-600 transition duration-150 ease-in-out">
                 <!-- Heroicon name: plus -->
                 <svg class="-ml-1 mr-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
@@ -115,7 +116,7 @@
 
     Menu open: "block", Menu closed: "hidden"
   -->
-    <div class="hidden md:hidden">
+    <div class="hidden md:hidden mobileNavMenu">
       <div class="px-2 pt-2 pb-3 sm:px-3">
         <a href="/"
           class="block px-3 py-2 rounded-md text-base font-medium text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Home
@@ -131,8 +132,8 @@
             <img class="h-10 w-10 rounded-full" src="../../public/assets/images/userlogo.png" alt="">
           </div>
           <div class="ml-3">
-            <div class="text-base font-medium leading-6 text-white">Tom Cook</div>
-            <div class="text-sm font-medium leading-5 text-gray-400">tom@example.com</div>
+            <div class="text-base font-medium leading-6 text-white mobileNavName"></div>
+            <div class="text-sm font-medium leading-5 text-gray-400 mobileNavEmail"></div>
           </div>
         </div>
       </div>
@@ -142,6 +143,37 @@
   {{{body}}}
 
   <script src="/public/assets/js/index.js"></script>
+  <script>
+    var navIconOpen = $(".mobileNavIconClosed")
+    var navIconClosed = $(".mobileNavIconOpen")
+    var navButton = $(".mobileNavButton")
+    var navMenu = $(".mobileNavMenu")
+
+    function changeMenuStatus() {
+      if (navButton.data("toggle") === "hide") {
+
+        navButton.data("toggle", "show")
+        navIconClosed.addClass("block")
+        navIconClosed.removeClass("hidden")
+        navIconOpen.addClass("hidden")
+        navIconOpen.removeClass("block")
+        navMenu.addClass("block")
+        navMenu.removeClass("hidden")
+      } else if (navButton.data("toggle") === "show") {
+
+        navButton.data("toggle", "hide")
+        navIconClosed.addClass("hidden")
+        navIconClosed.removeClass("block")
+        navIconOpen.addClass("block")
+        navIconOpen.removeClass("hidden")
+        navMenu.addClass("hidden")
+        navMenu.removeClass("block")
+      }
+    }
+    navButton.on("click", changeMenuStatus)
+
+
+  </script>
 
 </body>
 
