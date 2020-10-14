@@ -54,7 +54,7 @@ function renderUserPosts(userPosts) {
 
 
     var table = $(".postTable")
-    for (let i = 0; i < userPosts.length; i++) {
+    for (let i = 0; i < 5; i++) {
         const post = userPosts[i];
         var tableRow = $("<tr>")
 
@@ -86,9 +86,9 @@ function renderUserPosts(userPosts) {
 
     }
 
-    $("#carousel-text").text(userPosts[6].gratitude);
-    $("#carousel-text2").text(userPosts[7].gratitude);
-    $("#carousel-text3").text(userPosts[8].gratitude);
+    $("#carousel-text").text(userPosts[0].gratitude);
+    $("#carousel-text2").text(userPosts[1].gratitude);
+    $("#carousel-text3").text(userPosts[2].gratitude);
 }
 
 
