@@ -28,7 +28,7 @@ text.textContent = ""
 // console.log(splitText)
 
 for (var i = 0; i < splitText.length; i++) {
-    text.innerHTML += "<span>" + splitText[i] + "</span>"
+    text.innerHTML += `<span id="letters">` + splitText[i] + "</span>"
 };
 
 let char = 0;

@@ -3,12 +3,12 @@
 /* Document
    ========================================================================== */
 
-span {
+#letters {
   opacity: 0;
   transition: all 1s ease;
 }
 
-span.fade {
+#letters.fade {
   opacity: 1;
   
 }
