@@ -1,4 +1,22 @@
+var currentUserId;
+var userReasons;
+
 $(document).ready(function() {
+    if (currentUserId !== 0) {
+        $("#newPostButton").removeClass("hidden");
+        $(".logButton").text("Logout")
+        $(".logButton").attr("href", "logout")
+        $(".homeButton").attr("href", "members")
+        
+        
+    } else {
+        $("#newPostButton").addClass("hidden");
+        $(".logButton").text("Login")
+        $(".logButton").attr("href","login")
+        $(".homeButton").attr("href", "/")
+        
+    }
+
     var login = $("#login");
     var signup = $("#signup");
     var newpost = $("#newpost");
