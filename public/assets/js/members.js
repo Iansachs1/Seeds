@@ -86,9 +86,9 @@ function renderUserPosts(userPosts) {
 
     }
 
-    $("#carousel-text").text(`You should always try to remember something to be grateful for: ` + userPosts[0].gratitude);
-    $("#carousel-text2").text(`You should always try to remember something to be grateful for: ` + userPosts[1].gratitude);
-    $("#carousel-text3").text(`You should always try to remember something to be grateful for: ` + userPosts[2].gratitude);
+    $("#carousel-text").text(userPosts[6].gratitude);
+    $("#carousel-text2").text(userPosts[7].gratitude);
+    $("#carousel-text3").text(userPosts[8].gratitude);
 }
 
 
