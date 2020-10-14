@@ -15,10 +15,10 @@
         "dialect": "mysql"
     },
     "production": {
-        "username": "root",
-        "password": "root",
-        "database": "database_production",
-        "host": "127.0.0.1",
+        "username": process.env.DB_USER || "root",
+        "password": process.env.password || "root",
+        "database": process.env.database || "database_production",
+        "host": process.env.host || "127.0.0.1",
         "dialect": "mysql"
     }
 }
