@@ -3,6 +3,16 @@
 /* Document
    ========================================================================== */
 
+span {
+  opacity: 0;
+  transition: all 1s ease;
+}
+
+span.fade {
+  opacity: 1;
+  
+}
+
 .carousel-open:checked + .carousel-item {
     position: static;
     opacity: 100;
