@@ -19,6 +19,7 @@ module.exports = {
             blueLight1: "#b2ebf2",
             black: "#000000",
             white: "#ffffff",
+            skyBlue: "#36A2EB",
         },
         height: (theme) => ({
             "screen/2": "50vh",
