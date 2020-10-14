@@ -57,7 +57,7 @@ function renderUserPosts(userPosts) {
     for (let i = 0; i < 5; i++) {
         const post = userPosts[i];
         var tableRow = $("<tr>")
-
+        console.log(post)
         var date = post.createdAt;
         var shortdate = date.substring(0, 10);
         
