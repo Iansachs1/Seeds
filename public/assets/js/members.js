@@ -51,7 +51,11 @@ $(document).ready(function () {
 });
 
 function renderUserPosts(userPosts) {
-
+    
+        $("#carousel-text").text(userPosts[0].gratitude);
+        $("#carousel-text2").text(userPosts[1].gratitude);
+        $("#carousel-text3").text(userPosts[2].gratitude);
+    
 
     var table = $(".postTable")
     for (let i = 0; i < 5; i++) {
@@ -85,10 +89,6 @@ function renderUserPosts(userPosts) {
 
 
     }
-
-    $("#carousel-text").text(userPosts[0].gratitude);
-    $("#carousel-text2").text(userPosts[1].gratitude);
-    $("#carousel-text3").text(userPosts[2].gratitude);
 }
 
 
