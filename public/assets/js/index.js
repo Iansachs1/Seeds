@@ -24,11 +24,11 @@ const text = document.querySelector(".animation");
 const strText = text.textContent;
 const splitText = strText.split("")
 // animation.textContent() = "";
-text.textContent = ""
+text.textContent = "";
 // console.log(splitText)
 
 for (var i = 0; i < splitText.length; i++) {
-    text.innerHTML += `<span id="letters">` + splitText[i] + "</span>"
+    text.innerHTML += `<span class="letters">` + splitText[i] + "</span>"
 };
 
 let char = 0;

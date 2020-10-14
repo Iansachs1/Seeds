@@ -7,13 +7,13 @@ $(document).ready(function () {
     //hides the navbar post button when user isn't signed in
     if (currentUserId !== 0) {
         $("#newPostButton").removeClass("hidden");
-        $("#logButton").text("Logout")
-        $("#logButton").attr("href", "logout")
+        $(".logButton").text("Logout")
+        $(".logButton").attr("href", "logout")
 
     } else {
         $("#newPostButton").addClass("hidden");
-        $("#logButton").text("Login")
-        $("#logButton").attr("href","login")
+        $(".logButton").text("Login")
+        $(".logButton").attr("href","login")
         
     }
     // This file just does a GET request to figure out which user is logged in
@@ -86,9 +86,9 @@ function renderUserPosts(userPosts) {
 
     }
 
-    $("#carousel-text").text(`You should always try to remember something to be grateful for: ` + userPosts[6].gratitude);
-    $("#carousel-text2").text(`You should always try to remember something to be grateful for: ` + userPosts[7].gratitude);
-    $("#carousel-text3").text(`You should always try to remember something to be grateful for: ` + userPosts[8].gratitude);
+    $("#carousel-text").text(`You should always try to remember something to be grateful for: ` + userPosts[0].gratitude);
+    $("#carousel-text2").text(`You should always try to remember something to be grateful for: ` + userPosts[1].gratitude);
+    $("#carousel-text3").text(`You should always try to remember something to be grateful for: ` + userPosts[2].gratitude);
 }
 
 
