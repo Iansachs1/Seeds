@@ -43,6 +43,7 @@ $(document).ready(function() {
                     createDayQualityChart(userPosts, "dayQualityChart");
                     createReasonsForDayChart(userPosts, "good", "goodReasons");
                     createReasonsForDayChart(userPosts, "bad", "badReasons");
+                    createReasonsBarChart(userPosts, "reasonsBarChart");
 
                     renderUserPosts(userPosts);
                 })
