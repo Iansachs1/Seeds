@@ -4,12 +4,8 @@ var userReasons;
 $(document).ready(function() {
     if (currentUserId !== 0) {
         $(".homeButton").attr("href", "members")
-        $(".logButton").text("Logout")
-        $(".logButton").attr("href", "logout")
     } else {
         $(".homeButton").attr("href", "/")
-        $(".logButton").text("Login")
-        $(".logButton").attr("href", "login")
     }
 
     var login = $("#login");
