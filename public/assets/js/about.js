@@ -8,7 +8,6 @@ $(document).ready(function(){
         $(".member-name").text(data.name);
         currentUserId = data.id;
 
-        console.log(currentUserId)
 
         if (currentUserId !== undefined) {
             $(".homeButton").attr("href", "members")
