@@ -11,6 +11,7 @@ Seeds will organize and display everyday you log in an easy to digest format to 
 ## Table of Contents
 * [Description](#Description)
 * [Usage](#Usage)
+* [Contributors](#Contributors)
 
 ## Description
 
@@ -42,4 +43,6 @@ Once the user completes a post, they will be given some metrics on the members p
 
 ![Members page with metrics.](https://github.com/falbuna/Seeds/blob/main/Assets/metrics_6.png)
 
+## Contributors
 
+Francis A., Ian S., Jeff C., Matt M.
